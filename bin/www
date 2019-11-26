@@ -3,7 +3,7 @@
 /**
  * Module dependencies.
  */
-
+const mongoose = require('mongoose');
 var app = require('../app');
 var debug = require('debug')('myapp:server');
 var http = require('http');
@@ -14,6 +14,22 @@ var http = require('http');
 
 var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
+
+const mongoDbUri = process.env.MONGODB_URI || 'mongodb://localhost:27017';
+const mongoDbDatabase = process.env.MONGODB_DATABASE || 'tp4';
+
+/**
+ * Connect to MongoDB database.
+ */
+
+mongoose.connect(`${mongoDbUri}/${mongoDbDatabase}`, { useNewUrlParser: true, useFindAndModify: false, useUnifiedTopology: true }, (err) => {
+  if (err) {
+    console.log(`Error trying to connect to db: ${mongoDbDatabase}`);
+    console.log(err);
+  } else {
+    console.log(`Connected to db: ${mongoDbDatabase}`);
+  }
+});
 
 /**
  * Create HTTP server.
