@@ -2,6 +2,10 @@
 
 ## Guillaume MAURIN
 
+## MONGODB
+
+Le tp s'appuie sur mongoose donc un serveur mongo doit être lancé pour que le tp fonctionne
+
 A lire impérativement avant de commencer quoi que ce soit, ce sont les règles que vous devrez appliquer tout au long du semestre:
 
 <p align="center">
